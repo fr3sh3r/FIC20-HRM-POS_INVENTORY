@@ -30,7 +30,7 @@ class AuthController extends Controller
             ], 404);
         }
 
-        $token = $user->createTokern('hrm-token')->plainTextToken;
+        $token = $user->createToken('hrm-token')->plainTextToken;
 
         return response([
             'user' => $user,
