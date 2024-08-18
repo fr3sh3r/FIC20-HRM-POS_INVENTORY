@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
+
+use function Laravel\Prompts\password;
 
 class AuthController extends Controller
 {
@@ -22,6 +25,11 @@ class AuthController extends Controller
         //if credentials are correct
         $user = User::where('email', $request->email)->first();
 
+        // Di dalam metode controller, atau di mana saja
+        Log::debug('Ini adalah pesan debug.');
+        Log::debug('Nama User:', ['user' => $user]);
+        //Log::debug('Password:', $user->password());
+
         //if $user = NULL then errocode 404
         //jika tidak NULL naka dicek passwordnya
         if (!$user || !Hash::check($request->password, $user->password)) {
@@ -30,7 +38,7 @@ class AuthController extends Controller
             ], 404);
         }
 
-        $token = $user->createTokern('hrm-token')->plainTextToken;
+        $token = $user->createToken('hrm-token')->plainTextToken;
 
         return response([
             'user' => $user,
@@ -39,7 +47,8 @@ class AuthController extends Controller
     }
 
 
-    public function logout(Request $request) {
+    public function logout(Request $request)
+    {
         $request->user()->currentAccessToken()->delete();
 
         return response([
