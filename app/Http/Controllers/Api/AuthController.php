@@ -28,6 +28,7 @@ class AuthController extends Controller
         // Di dalam metode controller, atau di mana saja
         Log::debug('Ini adalah pesan debug.');
         Log::debug('Nama User:', ['user' => $user]);
+        
         //Log::debug('Password:', $user->password());
 
         //if $user = NULL then errocode 404

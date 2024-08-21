@@ -29,5 +29,16 @@ class DatabaseSeeder extends Seeder
             'email' => 'guest@tamu.com',
             'password' => Hash::make('12345678')
         ]);
+
+
+        //call untuk memanggil Class Seeders yang ada dalam file2 seeders lainnya
+        $this->call([
+            CompanySeeder::class,
+            RoleSeeder::class,
+            PermissionSeeder::class,
+            PermissionRoleSeeder::class,
+            DepartmentSeeder::class,
+            DesignationSeeder::class,
+        ]);
     }
 }
