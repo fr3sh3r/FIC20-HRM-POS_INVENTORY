@@ -25,3 +25,6 @@ Route::apiResource('/departments', App\Http\Controllers\Api\DepartmentController
 
 //Designations
 Route::apiResource('/designations', App\Http\Controllers\Api\DesignationController::class)->middleware('auth:sanctum');
+
+//shifts
+Route::apiResource('/shifts', App\Http\Controllers\Api\ShiftController::class)->middleware('auth:sanctum');
