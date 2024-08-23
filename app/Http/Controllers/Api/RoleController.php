@@ -102,4 +102,21 @@ class RoleController extends Controller
             'data' => $role
         ], 200);
     }
+
+    //destroy
+    public function destroy($id)
+    {
+        $role = Role::find($id);
+        if (!$role) {
+            return response([
+                'message' => 'Role not found'
+            ], 404);
+        }
+
+        $role->delete();
+
+        return response([
+            'message' => 'Role deleted'
+        ], 200);
+    }
 }

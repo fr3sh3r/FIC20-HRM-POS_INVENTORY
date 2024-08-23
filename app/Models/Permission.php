@@ -13,7 +13,7 @@ class Permission extends Model
         'name',
         'display_name',
         'description',
-        'module_name',
+        'module_name',  //access: READ WRITE DELETE EXECUTE setting: MODIFY
     ];
 
     public function roles()

@@ -30,6 +30,12 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('12345678')
         ]);
 
+        User::factory()->create([
+            'name' => 'Yumi',
+            'email' => 'martini@adijaya.com',
+            'password' => Hash::make('12345678')
+        ]);
+
 
         //call untuk memanggil Class Seeders yang ada dalam file2 seeders lainnya
         $this->call([
@@ -40,6 +46,11 @@ class DatabaseSeeder extends Seeder
             DepartmentSeeder::class,
             DesignationSeeder::class,
             ShiftSeeder::class,
+            BasicSalarySeeder::class,
+            RoleUserSeeder::class,
+            HolidaySeeder::class,
+            LeaveTypeSeeder::class,
+            LeaveSeeder::class,
         ]);
     }
 }
