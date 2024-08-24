@@ -52,3 +52,8 @@ Route::apiResource('/leaves', App\Http\Controllers\Api\LeaveController::class)->
 
 //Attendance
 Route::apiResource('/attendances', App\Http\Controllers\Api\AttendanceController::class)->middleware('auth:sanctum');
+
+//Payroll
+Route::apiResource('/payrolls', App\Http\Controllers\Api\PayrollController::class)->middleware('auth:sanctum');
+
+
