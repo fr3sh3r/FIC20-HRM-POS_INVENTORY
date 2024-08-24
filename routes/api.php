@@ -49,3 +49,6 @@ Route::apiResource('/leave-types', App\Http\Controllers\Api\LeaveTypeController:
 
 //Leave
 Route::apiResource('/leaves', App\Http\Controllers\Api\LeaveController::class)->middleware('auth:sanctum');
+
+//Attendance
+Route::apiResource('/attendances', App\Http\Controllers\Api\AttendanceController::class)->middleware('auth:sanctum');
