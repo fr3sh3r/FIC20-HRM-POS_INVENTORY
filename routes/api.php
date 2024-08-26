@@ -56,4 +56,5 @@ Route::apiResource('/attendances', App\Http\Controllers\Api\AttendanceController
 //Payroll
 Route::apiResource('/payrolls', App\Http\Controllers\Api\PayrollController::class)->middleware('auth:sanctum');
 
-
+//User
+Route::apiResource('/users', App\Http\Controllers\Api\UserController::class)->middleware('auth:sanctum');

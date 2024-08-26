@@ -22,10 +22,10 @@
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Dashboard</span></a>
                 <ul class="dropdown-menu">
 
-                    <li class=''>
+                    {{-- <li class=''>
                         <a class="nav-link" href="{{ route('users.index') }}">Users</a>
 
-                    </li>
+                    </li> --}}
 
                 </ul>
 
