@@ -23,20 +23,6 @@ class DesignationController extends Controller
     //store
     public function store(Request $request)
     {
-        //dicoba di postman tidak ada response , maka dicoba
-        Log::info('Reached store method');
-
-        // dd('Reached store method');
-
-
-
-        // Hentikan eksekusi dan tampilkan semua data request
-        // dd($request->all());
-
-        // Mencatat pesan debug ke dalam log
-        Log::debug('Ini adalah pesan debug DesignationController.');
-        Log::info('Request data:', $request->all());
-
         // Validasi request
         $request->validate([
             'name' => 'required',

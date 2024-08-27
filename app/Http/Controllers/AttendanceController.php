@@ -10,10 +10,8 @@ use Illuminate\Support\Facades\DB;
 
 class AttendanceController extends Controller
 {
-    // Method untuk menampilkan daftar daftar hadir
     public function index(Request $request)
     {
-        // Mengambil daftar absensi dengan pagination dan filter berdasarkan nama jika ada
         $attendances = DB::table('attendances')
             ->when($request->input('name'), function ($query, $name) {
                 return $query->where('name', 'like', '%' . $name . '%');
@@ -24,13 +22,13 @@ class AttendanceController extends Controller
         return view('pages.attendances.index', compact('attendances'));
     }
 
-    // Method untuk menampilkan halaman form pembuatan absensi baru
+    // Method untuk menampilkan halaman form data baru
     public function create()
     {
         return view('pages.attendances.create');
     }
 
-    // Method untuk menyimpan absensi baru ke database
+    // Method untuk menyimpan data ke database
     public function store(Request $request)
     {
         $request->validate([
@@ -67,40 +65,25 @@ class AttendanceController extends Controller
         $attendance->status = $request->status;
         $attendance->reason = $request->reason;
 
-        // $attendance->save();
-        try {
-            $attendance->save();
-        } catch (\Exception $e) {
-            return response([
-                'message' => 'Failed to create Attendance',
-                'error' => $e->getMessage(),
-            ], 500);
-        }
-
-        return response([
-            'message' => 'Attendance created successfully',
-            'data' => $attendance,
-        ], 201);
-
         // Redirect ke halaman daftar absensi dengan pesan sukses
         return redirect()->route('attendances.index')->with('success', 'Attendance created successfully.');
     }
 
-    // Method untuk menampilkan detail absensi
+
     public function show($id)
     {
         $attendance = Attendance::find($id);
         return view('pages.attendances.show', compact('attendance'));
     }
 
-    // Method untuk menampilkan form edit absensi
+
     public function edit($id)
     {
         $attendance = Attendance::find($id);
         return view('pages.attendances.edit', compact('attendance'));
     }
 
-    // Method untuk memperbarui absensi
+
     public function update(Request $request, $id)
     {
         $request->validate([
@@ -168,25 +151,10 @@ class AttendanceController extends Controller
 
         $attendance->save();
 
-        // try {
-        //     $attendance->save();
-        // } catch (\Exception $e) {
-        //     return response([
-        //         'message' => 'Failed to update Attendance',
-        //         'error' => $e->getMessage(),
-        //     ], 500);
-        // }
-
-        // return response([
-        //     'message' => 'Attendance updated successfully',
-        //     'data' => $attendance,
-        // ], 200);
-
-        // Redirect ke halaman daftar absensi dengan pesan sukses
         return redirect()->route('attendances.index')->with('success', 'Attendance updated successfully.');
     }
 
-    // Method untuk menghapus absensi
+
     public function destroy($id)
     {
         $attendance = Attendance::find($id);

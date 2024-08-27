@@ -22,10 +22,38 @@
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Dashboard</span></a>
                 <ul class="dropdown-menu">
 
-                    {{-- <li class=''>
+                    <li class=''>
                         <a class="nav-link" href="{{ route('users.index') }}">Users</a>
 
-                    </li> --}}
+                    </li>
+
+
+
+                </ul>
+
+            </li>
+
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>HRM</span></a>
+                <ul class="dropdown-menu">
+
+                    <li class=''>
+                        <a class="nav-link" href="{{ route('departments.index') }}">Departments</a>
+
+                    </li>
+
+                    <li class=''>
+                        <a class="nav-link" href="{{ route('basic-salaries.index') }}">Basic Salaries</a>
+
+                    </li>
+
+                    <li class=''>
+                        <a class="nav-link" href="{{ route('attendances.index') }}">Attendances</a>
+
+                    </li>
+                    <li class=''><a class="nav-link" href="{{ route('designations.index') }}">Designations</a>
+                    </li>
+                    <li class=''><a class="nav-link" href="{{ route('holidays.index') }}">Holidays</a></li>
 
                 </ul>
 
