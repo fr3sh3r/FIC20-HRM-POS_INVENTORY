@@ -43,7 +43,9 @@ class LeaveFactory extends Factory
 
 
         return [
-            'user_id' => User::factory(),
+            //'user_id' => User::factory(),  //pakai factory seperti ini otomatis menciptakan user, sehingga walaupun userseeder menciptakan 10 buah, akan dibuatkan dulu sebanyak seeder dari module ini
+            'user_id' => $this->faker->numberBetween(1, 12), // Mengisi user_id antara 1 hingga 10
+
             'leave_type_id' => LeaveType::factory(),
             'company_id' => 1,
             // 'start_date' => $this->faker->dateTimeBetween('-1 year', 'now')->format('Y-m-d'),
