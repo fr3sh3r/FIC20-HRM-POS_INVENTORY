@@ -33,7 +33,7 @@ class ShiftController extends Controller
 
         $shift = new Shift();
         $shift->company_id = 1;
-        $shift->created_by = $user->id;
+        $shift->created_by = $user->id; //ini jadinya dihapus di part1 prezoom7 menit 00:14
         $shift->name = $request->name;
         $shift->clock_in_time = $request->clock_in_time;
         $shift->clock_out_time = $request->clock_out_time;

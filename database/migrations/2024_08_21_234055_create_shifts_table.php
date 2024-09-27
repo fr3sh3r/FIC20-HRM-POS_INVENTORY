@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
 
             $table->foreignId('company_id')->constrained('companies')->onDelete('cascade');
-            $table->foreignId('created_by')->constrained('users')->onDelete('cascade');
+            // $table->foreignId('created_by')->constrained('users')->onDelete('cascade'); //ini jadinya dihapus di Prezoom7 menit 14
             $table->string('name');
             $table->time('clock_in_time');
             $table->time('clock_out_time');

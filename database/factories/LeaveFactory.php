@@ -45,7 +45,7 @@ class LeaveFactory extends Factory
         return [
             'user_id' => $this->faker->numberBetween(1, 12), // Mengisi user_id antara 1 hingga 10
 
-            'leave_type_id' => LeaveType::factory(),
+            'leave_type_id' => $this->faker->numberBetween(1, 10), //LeaveType::factory(),
             'company_id' => 1,
             // 'start_date' => $this->faker->dateTimeBetween('-1 year', 'now')->format('Y-m-d'),
             // 'end_date' => $this->faker->dateTimeBetween('now', '+1 year')->format('Y-m-d'),
